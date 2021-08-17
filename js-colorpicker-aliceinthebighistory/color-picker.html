@@ -23,6 +23,9 @@
             margin: auto;
             border: 3px dotted saddlebrown;
             background-color: rgb(255, 255, 255);
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
   
 .circles {
@@ -31,7 +34,8 @@
   left: 0;
   width: 100%;
   height: 100%;
-  overflow: hidden;
+  overflow: hidden;   
+   z-index: -1;
 }
 .circles li {
   position: absolute;
@@ -123,6 +127,9 @@
   animation-delay: 0s;
   animation-duration: 11s;
 }
+.h1{
+  text-align: center;
+}
 @keyframes animate {
   0% {
     transform:translateY(-1000px) rotate(720deg);
@@ -171,7 +178,11 @@
 
 
     <div class="container  justify-content-center mt-5 " style=height:50%;">
-        <div id=stage  class="w-75 "style="background:rgb(255, 255, 255)"></div>
+        <div id=stage  class="w-75 "style="background:rgb(255, 255, 255)">
+          <h1 class="h1">
+            Pick a color
+          </h1>
+      </div>
     </div>
     <div class="container h-100" style="width:80%;" >
         <div class="d-flex justify-content-center mt-5">
@@ -203,6 +214,7 @@
         var g = 255;
         var b = 255;
 
+        const h1 = document.querySelector(".h1");
         let BarR = document.getElementById("colorBarR");
         let BarG = document.getElementById("colorBarG");
         let BarB = document.getElementById("colorBarB");
@@ -213,6 +225,7 @@
             BarR.value = r;
             BarG.value = g;
             BarB.value = b;
+            h1.innerHTML = "rgb(" + r + "," + g + "," + b + ")";
         }
 
         function sbar(clr, obj) {
